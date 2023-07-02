@@ -6,3 +6,6 @@ class Cup:
         self.speed = speed
         self.carring_ability = carring_ability
         
+    def drive(self,speed):
+        self.charge-=10
+        return print("ЖЖЖЖЖ-жжжж-жжж-жжж")
