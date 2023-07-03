@@ -60,14 +60,14 @@ class Cup:
                 print("Столкновение произошло!")
                 self.speed = 21
                 self.check_speed()
-                break
+                return False
 
             # Дополнительные действия при отсутствии столкновения
             else:
                 # Вывод текущих координат кружек
                 print("Координаты cup1:", cup1.x, cup1.y, cup1.z)
                 print("Координаты cup2:", cup2.x, cup2.y, cup2.z)
-
+                return True
 
 cup1 = Cup(material="картон",
            condition="на земле",
@@ -94,9 +94,12 @@ print(cup1.charge)
 cup1.fill_cup()
 distance = 100
 cup1.check_speed()
-while cup1.charge > 10 or distance > 100:
-    distance -= 10
-    cup1.drive(100)
-    print(cup1.charge, distance)
+while True :
+    if cup1.check_line():
+        distance -= 10
+        cup1.drive(100)
+        print(cup1.charge, distance)
+    else:
+        break
 
-cup1.check_line()
+
